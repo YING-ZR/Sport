@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport_注册界面</title>
+    <link rel="stylesheet" href="style_register.css">
+</head>
+</head>
+
+<body>
+    <div class="head">
+        <div class="sport">Sport</div>
+        <div class="tiaozhuan">
+            <a href="#" target="_blank">首页</a>&nbsp;&nbsp;
+            <a href="index_login.html" target="_blank">登录</a>&nbsp;&nbsp;
+            <a href="index_register.html" target="_blank">注册</a>
+        </div>
+    </div>
+    <div class="header">
+        <strong>Sport</strong>用户注册
+    </div>
+    <div class="title">
+        <div class="choose">
+            <span id="choose1" class="choose1"> 账号信息</span>
+            <span id="choose2" class="choose2"> 个人信息</span>
+        </div>
+    </div>
+    <div class="register">
+        <form action="#" method="get">
+            <div id="sign1" class="sign1">
+                <table>
+                    <tr>
+                        <td>用户名：</td>
+                        <td><input type="text" placeholder="请输入用户名" id="username"><span id="namesize">用户名由3-8个字符组成</span> </td>
+                    </tr>
+                    <tr>
+                        <td>密码：</td>
+                        <td><input type="password" placeholder="请输入密码" id="password"><span id="passwordsize">请输入8-12位密码 </span></td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td>
+                        <td><input type="password" placeholder="请再次输入密码" id="repsword"><span class="error" id="error">两次密码不一致</span></td>
+                    </tr>
+                    <tr>
+                        <td>手机号码：</td>
+                        <td><input type="text" placeholder="请输入手机号码" id="phone"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            性别：
+                        </td>
+                        <td>
+                            <input type="radio" name="sex" id="nan" class="sex"> <label for="nan">男</label>&nbsp;&nbsp;
+                            <input type="radio" name="sex" id="nv" class="sex"> <label for="nv">女</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="sign2" class="sign2">
+                <table>
+                    <tr>
+                        <td>身高：</td>
+                        <td><input type="text" placeholder="请输入身高">请输入真实身高eg：170cm </td>
+                    </tr>
+                    <tr>
+                        <td>体重：</td>
+                        <td><input type="text" placeholder="请输入体重">请输入真实体重eg：100斤 </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input class="button" type="button" value="注册" onclick="check()"><br></td>
+                    </tr>
+                </table>
+
+            </div>
+        </form>
+    </div>
+    <script>
+        var sign1 = document.getElementById('sign1');
+        var sign2 = document.getElementById('sign2');
+        var choose1 = document.getElementById('choose1');
+        var choose2 = document.getElementById('choose2');
+        var password = document.getElementById('password');
+        var repsword = document.getElementById('repsword');
+        var username = document.getElementById('username');
+        var phone = document.getElementById('phone');
+
+        function check() {
+
+            with(document.all)
+            if (password.value != repsword.value) {
+                alert("两次密码不同");
+            }
+        }
+        choose1.onclick = function() {
+            sign2.style.display = 'none';
+            sign1.style.display = 'block';
+            choose1.style.borderBottom = "2px solid black";
+            choose2.style.borderBottom = "2px solid transparent";
+        }
+        choose2.onclick = function() {
+            sign1.style.display = 'none';
+            sign2.style.display = 'block';
+            choose2.style.borderBottom = "2px solid black";
+            choose1.style.borderBottom = "2px solid transparent";
+        }
+        username.oninput = function() {
+            if (username.value.length > 8 || username.value.length < 3) {
+                var namesize = document.getElementById('namesize');
+                namesize.style.color = "red";
+            } else {
+                var namesize = document.getElementById('namesize');
+                namesize.style.color = "green";
+            }
+        }
+        password.oninput = function() {
+            if (password.value.length > 12 || password.value.length < 8) {
+                var passwordsize = document.getElementById('passwordsize');
+                passwordsize.style.color = "red";
+            } else {
+                var passwordsize = document.getElementById('passwordsize');
+                passwordsize.style.color = "green";
+            }
+        }
+        repsword.onchange = function() {
+            if (password.value != repsword.value) {
+                var error = document.getElementById('error');
+                error.style.color = "red";
+            } else {
+                var error = document.getElementById('error');
+                error.style.color = "transparent";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
