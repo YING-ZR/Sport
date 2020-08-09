@@ -62,11 +62,11 @@
                 <table>
                     <tr>
                         <td>身高：</td>
-                        <td><input type="text" placeholder="请输入身高">请输入真实身高eg：170cm </td>
+                        <td><input type="text" placeholder="请输入身高" id="stature">请输入真实身高eg：170cm </td>
                     </tr>
                     <tr>
                         <td>体重：</td>
-                        <td><input type="text" placeholder="请输入体重">请输入真实体重eg：100斤 </td>
+                        <td><input type="text" placeholder="请输入体重" id="weight">请输入真实体重eg：100斤 </td>
                     </tr>
                     <tr>
                         <td></td>
@@ -77,7 +77,7 @@
             </div>
         </form>
     </div>
-    <script>
+    <script type="text/javascript">
         var sign1 = document.getElementById('sign1');
         var sign2 = document.getElementById('sign2');
         var choose1 = document.getElementById('choose1');
@@ -86,6 +86,11 @@
         var repsword = document.getElementById('repsword');
         var username = document.getElementById('username');
         var phone = document.getElementById('phone');
+        var nan = document.getElementById('nan');
+        var nv = document.getElementById('nv');
+        var stature = document.getElementById('stature');
+        var weight = document.getElementById('weight');
+        var btn = document.querySelector('.button');
 
         function check() {
 
@@ -131,6 +136,29 @@
             } else {
                 var error = document.getElementById('error');
                 error.style.color = "transparent";
+            }
+        }
+        btn.onclick = function() {
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            var userValue = username.value;
+            var passwordValue = password.value;
+            var nanValue = nan.value;
+            var nvValue = nv.value;
+            var phoneValue = phone.value;
+            var statureValue = stature.value;
+            var weightValue = weight.value;
+            var params = 'username=' + userValue + '&Password=' + passwordValue + 'nan=' + nanValue + '&nv=' + nvValue + '&Phone=' + phoneValue + 'Stature=' + statureValue + 'Weight=' + weightValue;
+            //配置ajax对象
+            xhr.open('post', 'http://localhost:3000/register');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(params);
+            xhr.onload = function() {
+                console.log(xhr.responseText);
+                alert('注册成功');
+            }
+            xhr.onerror = function() {
+                alert('网络中断，无法发送请求');
             }
         }
     </script>
