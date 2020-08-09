@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../images/背景\ 拷贝.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 20%;
+}
+
+.head {
+    border: 1px solid transparent;
+    height: 40px;
+    background-color: #f2f2f2;
+}
+
+.sport {
+    margin: 10px 160px;
+    height: 20px;
+    color: #959595;
+    float: left;
+}
+
+.jump {
+    float: right;
+    margin: 10px 160px;
+    height: 20px;
+}
+
+a {
+    color: #959595;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
+.sports {
+    height: 50px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.form {
+    width: 400px;
+    height: 500px;
+    margin: 0px auto;
+    background-color: rgba( 0, 0, 0, 0.66);
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.login {
+    text-align: center;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+}
+
+.form img {
+    height: 250px;
+    margin-top: 30px;
+    margin-left: 30px;
+    float: left;
+}
+
+input {
+    height: 45px;
+    width: 300px;
+    background: none;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 14px;
+    border: 1px solid white;
+    text-align: center;
+    outline: none;
+    color: white;
+}
+
+.forget {
+    height: 8px;
+    width: 350px;
+    text-align: right;
+}
+
+.sub {
+    margin-top: 22px;
+}
+
+.button {
+    width: 250px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 75px;
+    background-color: skyblue;
+    color: black;
+    font: 600 20px "宋体";
+    background-color: white;
+}

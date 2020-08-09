@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport</title>
+    <link rel="stylesheet" href="style_login.css">
+</head>
+
+<body>
+    <div class="head">
+        <div class="sport">Sport</div>
+        <div class="jump">
+            <a href="#" target="_blank">首页</a>&nbsp;&nbsp;
+            <a href="index_login.html" target="_blank">登录</a>&nbsp;&nbsp;
+            <a href="index_register.html" target="_blank">注册</a>
+        </div>
+    </div>
+    <div class="sports">
+        Sport 登录
+    </div>
+    <div class="form">
+        <div class="login">账号登录</div>
+        <form action="#" method="post">
+            <input class="username" type="text" placeholder="请输入账号">
+            <input class="password" type="password" placeholder="请输入密码">
+            <div class="forget"><a href="#" target="_blank">?忘记密码</a></div>
+            <div class="sub">
+                <input class="button" type="button" value="登录"><br>
+                <input class="button" type="reset" value="重置">
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var btn = document.querySelector('.button');
+        var username = document.querySelector('.username');
+        var Password = document.querySelector('.password');
+        btn.onclick = function() {
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            var textValue = username.value;
+            var passwordValue = Password.value;
+            var params = 'username=' + textValue + '&Password=' + passwordValue;
+            //配置ajax对象
+            xhr.open('post', 'http://localhost:3000/post');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(params);
+            xhr.onload = function() {
+                console.log(xhr.responseText);
+            }
+            xhr.onerror = function() {
+                alert('网络中断，无法发送请求');
+            }
+        }
+    </script>
+</body>
+
+</html>
